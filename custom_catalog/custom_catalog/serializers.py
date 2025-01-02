@@ -6,7 +6,7 @@ from .models import ExCatalogItem, ExternalOrgCatalog
 class ExCatalogItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExCatalogItem
-        fields = ["id", "name"]
+        fields = ["id", "name", "item_type"]
 
 
 class ExternalOrgCatalogSerializer(serializers.ModelSerializer):

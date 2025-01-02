@@ -9,7 +9,7 @@ class CourseKeysMixin:
         """
         Renders the IDs of the courses from get_course_runs.
         """
-        course_runs = obj.get_course_runs()
+        course_runs = obj.get_catalog_items()
         if course_runs.exists():
             course_ids = [str(course.id) for course in course_runs]  # Collect IDs of each course
             return format_html('<br>'.join(course_ids))  # Render IDs as a list

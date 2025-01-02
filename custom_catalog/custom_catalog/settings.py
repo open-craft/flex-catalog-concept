@@ -28,3 +28,4 @@ def plugin_settings(settings):
     settings.AVAILABLE_COURSES_FILTER = {
         'org': 'AcademyX'
     }
+    settings.FLEX_CATALOG_SERIALIZER = "custom_catalog.serializers.ExternalOrgCatalogSerializer"

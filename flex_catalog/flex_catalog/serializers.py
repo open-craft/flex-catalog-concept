@@ -21,5 +21,5 @@ class FlexibleCatalogModelSerializer(serializers.ModelSerializer):
         """
         Fetches the related course runs using the `get_course_runs` method.
         """
-        course_runs = obj.get_course_runs()
+        course_runs = obj.get_catalog_items()
         return CourseOverviewBaseSerializer(course_runs, many=True).data

@@ -26,3 +26,4 @@ def plugin_settings(settings):
     More info: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
     """
     settings.FLEX_CATALOG_SETTING = "something"
+    settings.FLEX_CATALOG_SERIALIZER = "flex_catalog.serializers.FlexibleCatalogModelSerializer"

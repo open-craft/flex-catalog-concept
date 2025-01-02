@@ -31,7 +31,7 @@ class FlexibleCatalogModel(TimeStampedModel):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-    def get_course_runs(self):
+    def get_catalog_items(self):
         """
         The base catalog class returns every CourseOverview
         """
@@ -41,7 +41,7 @@ class FlexibleCatalogModel(TimeStampedModel):
         """
         Basic implementation of keyword search
         """
-        return self.get_course_runs().filter(
+        return self.get_catalog_items().filter(
             models.Q(display_name__icontains=search_term)
         )
 
@@ -55,7 +55,7 @@ class FlexibleCatalogModel(TimeStampedModel):
 class FixedCatalog(FlexibleCatalogModel):
     course_runs = models.ManyToManyField('course_overviews.CourseOverview', blank=True)
 
-    def get_course_runs(self):
+    def get_catalog_items(self):
         """
         Returns the associated course_runs.
         """
@@ -70,7 +70,7 @@ class DynamicCatalog(FlexibleCatalogModel):
         help_text="Dynamic query string to filter course_runs.", blank=True, null=True
     )
 
-    def get_course_runs(self):
+    def get_catalog_items(self):
         """
         Filters course_runs dynamically based on the query_string.
         """
